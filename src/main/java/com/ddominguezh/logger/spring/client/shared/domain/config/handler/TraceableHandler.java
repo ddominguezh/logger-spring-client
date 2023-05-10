@@ -11,13 +11,14 @@ import org.aspectj.lang.annotation.Before;
 import org.aspectj.lang.reflect.CodeSignature;
 import org.springframework.stereotype.Component;
 
+import com.ddominguezh.logger.core.shared.domain.LoggingAppender;
 import com.ddominguezh.logger.core.shared.infrastructure.Log4jLogginAppender;
 
 @Aspect
 @Component
 public class TraceableHandler {
 
-	private static Log4jLogginAppender logger = new Log4jLogginAppender();
+	private static LoggingAppender logger = new Log4jLogginAppender();
 	private Instant start;
 
 	@Before(value = "@annotation(com.ddominguezh.logger.spring.client.shared.domain.config.annotations.Traceable)")
